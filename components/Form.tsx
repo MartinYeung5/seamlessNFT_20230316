@@ -55,8 +55,12 @@ const Form = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await mintTo([ address, 0, "", 1 ]);
-    console.info("contract call successs");
+    try {
+      const data = await mintTo([ address, 0, "", 1  ]);
+      console.info("contract call successs", data);
+    } catch (err) {
+      console.error("contract call failure", err);
+    }
 
     if (!stripe || !elements) {
       return console.error("not loaded");
