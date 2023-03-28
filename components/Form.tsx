@@ -91,7 +91,7 @@ const Form = () => {
               Check out your NFT
             </a><div className={styles.container}>
                 <Web3Button
-                  contractAddress="EDITION_ADDRESS"
+                  contractAddress="0x706ED67BAcC54aE391d8E6459a2cEE69E728E45A"
                   action={(contract) => contract.erc1155.claim(0, 1)}
                   onSuccess={() => alert("Claimed!")}
                   onError={() => alert("Something went wrong")}
