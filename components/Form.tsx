@@ -3,7 +3,7 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { useAddress, useContract, useContractWrite } from "@thirdweb-dev/react";
+import { useAddress, useContract, useContractWrite, Web3Button } from "@thirdweb-dev/react";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/button.module.css";
 
@@ -83,13 +83,22 @@ const Form = () => {
       {message ? (
         <>
           {isSuccess && (
-            <a
+            <><a
               href="https://testnets.opensea.io/assets/mumbai/0x706ED67BAcC54aE391d8E6459a2cEE69E728E45A/0"
               target="_blank"
               rel="noreferrer"
             >
               Check out your NFT
-            </a>
+            </a><div className={styles.container}>
+                <Web3Button
+                  contractAddress="EDITION_ADDRESS"
+                  action={(contract) => contract.erc1155.claim(0, 1)}
+                  onSuccess={() => alert("Claimed!")}
+                  onError={() => alert("Something went wrong")}
+                >
+                  Claim
+                </Web3Button>
+              </div></>
           )}
           <a href="\">Return to main page</a>
           <h1>{message}</h1>
