@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import "../styles/globals.css";
 
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mumbai;
+const activeChainId = "mumbai";
 
 const magicLinkConnector = new MagicConnector({
   options: {
