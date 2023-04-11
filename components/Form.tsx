@@ -3,7 +3,6 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-//import { useAddress, useContract, useContractWrite, Web3Button } from "@thirdweb-dev/react";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/button.module.css";
 
