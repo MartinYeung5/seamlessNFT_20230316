@@ -123,38 +123,6 @@ const Home: NextPage = () => {
 
   }, [isClientSide, address, isLogOut])
 
-
-
-  /*
-  useEffect(() => {
-    // Client-side-only code
-    const magic = new Magic('pk_live_C6FF2199FB003F9D');
-
-    // declare the data fetching function
-    const magicLogin = async () => {
-      console.log("magic.user =" + magic.user);
-      console.log(magic.user);
-      if (magic.user) {
-        setIsLoggedIn(await magic.user.isLoggedIn());
-        console.log("setIsLoggedIn =" + setIsLoggedIn);
-        console.log(setIsLoggedIn);
-        
-        const { publicAddress } = await magic.user.getMetadata();
-        if (publicAddress != null) {
-          setPublicAddress(publicAddress);
-        }
-        console.log(isLoggedIn);
-        setLoading(false);
-      } else {
-        setIsLoggedIn(false);
-        setLoading(false);
-      }
-    }
-
-    magicLogin();
-
-  }, [])
-  */
   const stripe = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
   );
@@ -175,7 +143,7 @@ const Home: NextPage = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          address,
+          publicAddress,
         }),
       })
         .then((res) => res.json())
