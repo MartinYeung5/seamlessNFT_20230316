@@ -21,7 +21,7 @@ const connectors = [magicLinkConnector];
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider
-      desiredChainId={activeChainId}
+      activeChain={activeChainId}
       walletConnectors={connectors}
     >
       <Component {...pageProps} />
